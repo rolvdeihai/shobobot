@@ -4,6 +4,11 @@ import os
 from help_cog import help_cog
 from music_cog import music_cog
 from GoogleScrapper import GoogleScrapper
+from dotenv import load_dotenv
+
+load_dotenv()
+
+DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
 
 #client = discord.Client(intents=discord.Intents.all())
 bot = commands.Bot(command_prefix="/", intents=discord.Intents.all())
@@ -37,4 +42,4 @@ async def on_ready():
     await bot.add_cog(GoogleScrapper(bot))
 
 
-bot.run('MTEwNTg1NzU2MTMxMzQxMTA3Mg.GDnJdg.nLIqWVnuBbmzKG1iN0jEYPnjE5Y1gDTD0x_1BY')
+bot.run(DISCORD_TOKEN)
